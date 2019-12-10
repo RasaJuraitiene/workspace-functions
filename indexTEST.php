@@ -1,75 +1,36 @@
 <?php
-//1. Uzduotis
-//$x = 0;
-//
-//function change_x(&$x){
-//    $x = 1;
-//
-//}
-//change_x($x);
-//print $x;
+function square($x){
+    return $x * $x;
+}
+$number = $_POST['number'] ?? false;
 
-//2. Uzduotis
-//$x = 0;
-//$b = &$x;
-//unset($b);
-//$b = 1;
-// print $x;
-
-// 3. Uzduotis
-//
-//$roll_joints = true;
-//$joint1 = false;
-//$joint1 = &$roll_joints;
-//$joint2 = false;
-//$joint2 = &$roll_joints;
-//$joint3 = false;
-//$joint3 = &$roll_joints;
-//
-// print $joint1;
-// print $joint2;
-// print $joint3;
-
-//4. Uzduotis + //5. Uzduotis
-//$sheep = ['blee'];
-//
-//for ($x = 1; $x < 5; $x++){
-//    $sheep[] = &$sheep[$x - 1];
-//  }
-//
-////$sheep[3] = 'mee';
-////var_dump($sheep);
-//
-//foreach ($sheep as $id => $zodis){
-//    unset($sheep[$id]);
-//    $sheep[] = $zodis;
-//   }
-//$sheep[3] = 'velniop sistema';
-//var_dump($sheep);
-
-//6. Uzduotis
-//
-//$array = ['b', 'x', 'x', 'b', 's'];
-//
-//function count_values($array, $val){
-//    $count = 0;
-//    foreach ($array as $value){
-//        if($value === $val){
-//            $count++;
-//        }
-//    }
-//    return $count;
-//}
-//
-//$counter = count_values($array, 'x');
-//var_dump($counter);
-
-//7.Uzduotis
-
-
+if(is_numeric($number)){
+    $h2 = square($number);
+}else{
+    $h2 = 'Irasykite verte';
+}
 
 ?>
-
-
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kelimas kvadratu</title>
+</head>
+<body>
+<h2>Kėlimas kvadratu:</h2>
+<form action="" method="post">
+    <label>
+        <span>Įveskite skaičių:</span>
+    <input type="number" name="number" >
+    </label>
+    <button type="submit">Submit</button>
+</form>
+<p><?php print $h2; ?></p>
+</body>
+</html>
 
 
