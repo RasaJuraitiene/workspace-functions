@@ -12,16 +12,24 @@ $form = [
             'label' => 'First name',
             'type' => 'text',
             'value' => 'Piotras',
+            'error' => 'Ivyko klaida',
             'extra' => [
                 'attr' => [
                     'class' => 'first-name',
                     'id' => 'first-name',
                 ]
             ]
-        ]
+        ],
     ],
     'buttons' => [
-        'kazkas' => 'kazkas'
+        'save' => [
+            'title' => 'Save',
+            'extra' => [
+                'attr' => [
+                    'class' => 'save-btn'
+                ]
+            ]
+        ]
     ]
 ];
 
