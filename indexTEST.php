@@ -44,6 +44,8 @@ function html_attr($array)
     return $attributes_string;
 }
 
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -56,6 +58,8 @@ function html_attr($array)
 </head>
 <body>
 <?php require('templates/form.tpl.php'); ?>
+
+
 </body>
 </html>
 
