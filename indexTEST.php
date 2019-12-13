@@ -1,50 +1,27 @@
 <?php
 
-$form = [
-    'attr' => [
-        'action' => 'indexTEST.php',
-        'method' => 'POST',
-        'class' => 'my-form',
-        'id' => 'login-form'
+$thermo = [
+    [
+        'shape' => 'circle',
+        'color' => 'green',
+        'text' => '"AS"'
     ],
-    'fields' => [
-        'first_name' => [
-            'label' => 'First name',
-            'type' => 'text',
-            'value' => 'Piotras',
-            'error' => 'Ivyko klaida',
-            'extra' => [
-                'attr' => [
-                    'class' => 'first-name',
-                    'id' => 'first-name',
-                ]
-            ]
-        ],
+    [
+        'shape' => 'square',
+        'color' => 'green',
+        'text' => '"B"'
     ],
-    'buttons' => [
-        'save' => [
-            'title' => 'Save',
-            'extra' => [
-                'attr' => [
-                    'class' => 'save-btn'
-                ]
-            ]
-        ]
+    [
+        'shape' => 'square',
+        'color' => 'orange',
+        'text' => '"B"'
+    ],
+    [
+        'shape' => 'square',
+        'color' => 'red',
+        'text' => '"D"'
     ]
 ];
-
-function html_attr($array)
-{
-    $attributes = [];
-    foreach ($array as $key => $value) {
-        $attribute = "$key=\"$value\"";
-        $attributes[] = $attribute;
-    }
-    $attributes_string = implode('', $attributes);
-    return $attributes_string;
-}
-
-
 
 ?>
 <!doctype html>
@@ -55,11 +32,42 @@ function html_attr($array)
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Form</title>
+    <style>
+        .figure {
+            height: 150px;
+            width: 150px;
+            border: 2px solid black;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .figure.circle {
+            border-radius: 50%;
+        }
+
+        .figure.red {
+            background-color: red;
+        }
+
+        .figure.green {
+            background-color: green;
+        }
+
+        .figure.orange {
+            background-color: orange;
+        }
+    </style>
 </head>
 <body>
-<?php require('templates/form.tpl.php'); ?>
-
-
+<?php require('templates/thermo.tpl.php'); ?>
 </body>
 </html>
 
