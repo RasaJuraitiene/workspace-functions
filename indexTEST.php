@@ -23,6 +23,21 @@ $thermo = [
     ]
 ];
 
+//function thermo_set_low(&$thermo)
+//{
+//    foreach ($thermo as $key => &$param) {
+//        $param['color'] = 'red';
+//    }
+//}
+//
+//thermo_set_low($thermo);
+
+function thermo_set_level(&$thermo, $id)
+{
+       $thermo[$id]['color'] = 'black';
+}
+thermo_set_level($thermo, 2);
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -63,6 +78,9 @@ $thermo = [
 
         .figure.orange {
             background-color: orange;
+        }
+        .figure.black{
+            background-color: black;
         }
     </style>
 </head>
