@@ -9,7 +9,7 @@ $thermo = [
     [
         'shape' => 'square',
         'color' => 'green',
-        'text' => '"B"'
+        'text' => '"tu"'
     ],
     [
         'shape' => 'square',
@@ -23,6 +23,13 @@ $thermo = [
     ]
 ];
 
+$stories = [
+    ['color' => 'green', 'labas'],
+    ['color' => 'green', 'as'],
+    ['color' => 'orange', 'noriu'],
+    ['color' => 'red', 'kavos']
+];
+
 //function thermo_set_low(&$thermo)
 //{
 //    foreach ($thermo as $key => &$param) {
@@ -32,17 +39,32 @@ $thermo = [
 //
 //thermo_set_low($thermo);
 
-function thermo_set_level(&$thermo, $id)
+$level = rand(0,3);
+
+function thermo_set_level(&$thermo, $level)
 {
-    foreach ($thermo as $key => &$figura) {
-        if ($key > $id) {
-            $figura['color'] = 'grey';
+    foreach ($thermo as $key => $figura) {
+        if ($key > $level) {
+            $thermo[$key]['color'] = 'grey';
+        }
+        if ($key != $level) {
+            unset($thermo[$key]['text']);
         }
     }
 }
 
-thermo_set_level($thermo, 1);
+thermo_set_level($thermo, $level);
 
+function build_storyline(&$stories, $level)
+{
+    foreach ($stories as $key => $story) {
+        if ($key > $level) {
+            unset($stories[$key]);
+        }
+    }
+}
+
+build_storyline($stories, $level);
 ?>
 <!doctype html>
 <html lang="en">
@@ -92,10 +114,24 @@ thermo_set_level($thermo, 1);
         .figure.grey {
             background-color: grey;
         }
+
+        li.red {
+            color: red;
+        }
+
+        li.green {
+            color: green;
+        }
+
+        li.orange {
+            color: orange;
+        }
+
     </style>
 </head>
 <body>
 <?php require('templates/thermo.tpl.php'); ?>
+<?php require('templates/stories.tpl.php'); ?>
 </body>
 </html>
 
