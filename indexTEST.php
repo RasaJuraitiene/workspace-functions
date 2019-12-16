@@ -34,9 +34,14 @@ $thermo = [
 
 function thermo_set_level(&$thermo, $id)
 {
-       $thermo[$id]['color'] = 'black';
+    foreach ($thermo as $key => &$figura) {
+        if ($key > $id) {
+            $figura['color'] = 'grey';
+        }
+    }
 }
-thermo_set_level($thermo, 2);
+
+thermo_set_level($thermo, 1);
 
 ?>
 <!doctype html>
@@ -79,8 +84,13 @@ thermo_set_level($thermo, 2);
         .figure.orange {
             background-color: orange;
         }
-        .figure.black{
+
+        .figure.black {
             background-color: black;
+        }
+
+        .figure.grey {
+            background-color: grey;
         }
     </style>
 </head>
