@@ -10,6 +10,7 @@ $form = [
         'first_name' => [
             'validate' => [
                 'validate_field_not_empty',
+                'validate_is_number'
             ],
             'label' => 'First name',
             'type' => 'text',
@@ -78,6 +79,12 @@ function validate_field_not_empty($field_value, &$field)
         $field['error'] = 'Laukelis tuscias';
     }
 }
+function validate_is_number($field_value, &$field)
+{
+    if (!is_numeric($field_value)) {
+        $field['error'] = 'Laukelis pribalo buti skaicius';
+    }
+}
 
 // validuoti forma
 function validate_form(&$form, $input)
@@ -92,7 +99,7 @@ function validate_form(&$form, $input)
 //        // Tam, kad nedingtu ivestos laukelio vertes po submito
         $field['value'] = $field_value;
 //
-        foreach ($field['validators'] as $validation_function) {
+        foreach ($field['validate'] as $validation_function) {
             //        //Kvieciam f-ją kuri nustato errora fieldui
             $validation_function($field_value, $field);
         }
